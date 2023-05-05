@@ -14,11 +14,13 @@
   ```
 - CI is deprecated as of C++17, so CD is the only one we can use.
 - We can find |v| which is the +ve length of a vector v from origin to the point (x,y). Here y is the imaginary part and x is the real part. This is done using the abs(<CN>) function. 
-  That is, abs(<CN>) = sqrt(x2+y2)
-  What is sqrt(x2+y2) ?
+  That is, 
+  $$\text{abs(<CN>)} = \sqrt{x^2+y^2}$$
+  What is $$\sqrt{x^2+y^2}$$ ?
   
   ![image.png](../assets/image_1683264291580_0.png)
-- It is the distance from origin to the point x,y.
+  
+  It is the distance from origin to the point x,y.
   Since it can be floating, it is better to use CD.
 - We can also calculate distance between 2 points using abs(),
   to do so say a and b are CD, then
@@ -47,7 +49,8 @@
   
   ![image.png](../assets/image_1683265036139_0.png){:height 185, :width 597}
   
-  a X b = a_{1}b_{2} – a_{2}b_{1} (for 2D, vector cross product is the CN multiplication), it can be retrieved by
+  $$ a \times b = a_1*b_2 - a_2*b_1 $$ 
+  (for 2D, vector cross product is the CN multiplication), it can be retrieved by
   ``double result { (conj(a)*b).I };``
   Here conj turns a’s imaginary part (or y axis) negative, as conjugate of a CN is simply the sign of its imaginary part flipped so we get (a_{1}, -a_{2}) and the CN multiplication of this with b is
   a_{1}b_{2} - a_{2}b_{1}
@@ -60,8 +63,8 @@
 	  ``double R = (P - A) X (P - B)``
 	  which returns a scalar value, 
 	  0 means P is on the line passing through A and B 
-	  >0 means P is on the left of the line
-	  <0 means it is on the right.
+	  \>0 means P is on the left of the line
+	  \<0 means it is on the right.
 	  
 	  For ex.:
 	  
@@ -114,15 +117,77 @@
 	  
 	  Here, we get vector cross product of both c and d AND a and b with respect to a and b and c and d respectively. If they intersect somewhere, as we can see above, then vector cross product of a will be >0 and b will be <0, and the same will be true for c and d. If both these are true as here, then it means ab and cd intersect somewhere.
 	  
+	  In C++,
+	  ```cpp
+	      // 2D vector cross product aka Complex Number Multiplication
+	      double crossProduct(CD &a, CD &b, CD &p)
+	      {
+	          CD temp1{p - a};
+	          CD temp2{p - b};
+	          double result{(conj(temp1) * temp2).I};
+	  
+	          return result;
+	      }
+	  
+	      bool comparatorCD(CD &a, CD &b)
+	      {
+	          return (a.R == b.R) ? (a.I < b.I) : (a.R < b.R);
+	      }
+	      //checks if the point b is in middle on the cartesian plane with respect to the other args.
+	      bool isMid(CD &a, CD &b, CD &c)
+	      {
+	          std::vector<CD> temp{a, b, c};
+	          std::sort(temp.begin(), temp.end(), comparatorCD);
+	  
+	          return temp[1] == b;
+	      }
+	  
+	      void start()
+	      {
+	          double resA1{crossProduct(b1, b2, a1)};
+	  
+	          double resA2{crossProduct(b1, b2, a2)};
+	  
+	          double resB1{crossProduct(a1, a2, b1)};
+	  
+	          double resB2{crossProduct(a1, a2, b2)};
+	  
+	          result = "NO";
+	  
+	          if (resB1 == 0 && isMid(a1, b1, a2))
+	          {
+	              result = "YES";
+	          }
+	          else if (resB2 == 0 && isMid(a1, b2, a2))
+	          {
+	              result = "YES";
+	          }
+	          else if (resA1 == 0 && isMid(b1, a1, b2))
+	          {
+	              result = "YES";
+	          }
+	          else if (resA2 == 0 && isMid(b1, a2, b2))
+	          {
+	              result = "YES";
+	          }
+	          if ((resA1 * resA2) < 0 && (resB1 * resB2) < 0) // case 3
+	          {
+	              result = "YES";
+	          }
+	  
+	          output();
+	      }
+	  ```
+	  The logic is pretty simple, first we test each point against the other line segment. This way we know where each point lies wrt the other line segment. Now if a point is in between the points of the other line segment and lies on the line then we have case 1 or case 2 fulfilled. Lastly if that is not true then we check for case 3  which requires both pairs of points to be on the opposite side of the other line segment. We can check this by simply multiplying the opposite resultant values, it will be -ve if exactly one of them is negative.
 	  
 	  * Distance from a point to a line: Using vector cross product we can calculate the distance from a point to a line. This is because we can calculate the area of a triangle using vector cross products using the formula
-	  ``Area of a triange = (| (a-c) X (b-c) |) / 2``
+	  $$\text {Area of a triangle} = \frac {(\left| (a-c) \times (b-c) \right|)}{2}$$
 	  | | here means +ve value not vector magnitude because 2D vector cross product returns a scalar value.
 	  Here a, b and c are 3 points or rather vertices of the triangle.
 	  
 	  Using this we can find out the height of the triangle, i.e., shortest distance from c to line passing through a and b using this formula
 	  
-	  ``d= (a-c) X (b-c) / (| b – a |)``
+	  $$ \text d= \frac {(a-c) \times (b-c)}{(\left| b – a \right|)}$$
 	  This is because for the area of a triangle we have 2 formulae, first is (½)*(|b-a|)*d, which gives the normal area of triangle and then (| (a-c) X (b-c) |) / 2, which is using the vector cross product. Here d is the height.
 	  For example:
 	  
@@ -163,7 +228,7 @@
   ![image.png](../assets/image_1683280650170_0.png) 
   
   The area of each trapezoid here is 
-  Area = (x_{i+1} - x_{i})*(y_{i} + y_{i+1}) / 2
+  $$Area = (x_{i+1} - x_{i})*\frac{(y_{i} + y_{i+1})}{2}$$
 - Pick’s Theorem 
   Tells us the area of a polygon is
   $$\text Area = a + \frac{b}{2} - 1$$
@@ -175,37 +240,67 @@
   Here, a = 6 and b = 7.
 - Distance Functions
   Defines the distance between any 2 points, there’s the standard Euclidean distance, which is the plain and straight distance to a point
-  Euclidean Distance = sqrt( (x2-x1)2 + (y2-y1)2 )
-- It uses Pythagoras’ theorem in a triangle to calculate the distance.
+  $$\text{Euclidean Distance} = \sqrt{ (x_2 - x_1)^2 + (y_2-y_1)^2 }$$
+  
+  It uses Pythagoras’ theorem in a triangle to calculate the distance.
   represented like so
-- There’s another type of distance metric known as a Manhattan Distance which uses a grid-like path, or rather the sum of the differences in each of the cartesian co-ordinates. 
+  ![image.png](../assets/image_1683282352124_0.png)
+  *There’s another type of distance metric known as a Manhattan Distance which uses a grid-like path, or rather the sum of the differences in each of the cartesian co-ordinates. 
   That is,
-  Manhattan Distance = |x1-x2| + |y1-y2|
-- We basically summed the difference of the cartesian co-ordinates, this means we follow a grid-like path to the point and not a straight line like so
-- Then there’s the Chessboard distance or the Chebyshev distance, which is the maximum of difference of either coordinates between 2 points.
-  Chebyshev Distance = max(|x1-x2, y1-y2|)
-- It looks like so 
+  $$\text Manhattan Distance = \left | x_1 - x_2 \right | + \left | y_1- y_2 \right |$$
+  
+  We basically summed the difference of the cartesian co-ordinates, this means we follow a grid-like path to the point and not a straight line like so
+  ![image.png](../assets/image_1683288296272_0.png)
+  
+  * Then there’s the Chessboard distance or the Chebyshev distance, which is the maximum of difference of either coordinates between 2 points.
+  $$\text {Chebyshev Distance} = \max ( \left | x_1 - x_2 \right |, \left | y_1 - y_2 \right | )$$
+  
+  It looks like so 
+  ![image.png](../assets/image_1683288436752_0.png) 
   
   The Chebyshev distance can be thought of as a King’s minimum number of moves to reach another block on a chessboard, as shown here
-- Properties
-  	1 unit
-- and with Chebyshev
-- We can visually see why the Chebyshev is 1 for all green points, it’s because it doesn’t care about the diagonals, just the pure maximum of difference of either axes between any 2 points. Or we can say 1 unit of Chebyshev Distance is the distance travelled on x-axis, or y-axis or on both at the same time (diagonal) so (1,1) is still 1 Chebyshev Distance as we can use both or either of the axes to move.
-- As we can see above, a Chebyshev distance can be converted to a Manhattan Distance if we rotate it by 45 degrees, and same for the other way around. This means,
-- 45 degree Rotated Chebyshev or Manhattan = Manhattan or Chebyshev respectively.
-- A simple way to rotate a Manhattan to a Chebyshev is,
-  for a point p=(x,y), we transform it as p’= (x+y , y-x)
-- This transforms a point by rotating it 45 degrees and scaling it.
-- For ex.:
+  ![image.png](../assets/image_1683288446994_0.png)
+  
+  * Properties
+   ** 1 unit
+  
+  ![image.png](../assets/image_1683288515797_0.png)
+  
+  and with Chebyshev
+  
+  ![image.png](../assets/image_1683288525779_0.png)
+  
+  We can visually see why the Chebyshev is 1 for all green points, it’s because it doesn’t care about the diagonals, just the pure maximum of difference of either axes between any 2 points. Or we can say 1 unit of Chebyshev Distance is the distance travelled on x-axis, or y-axis or on both at the same time (diagonal) so (1,1) is still 1 Chebyshev Distance as we can use both or either of the axes to move.
+  
+  ** As we can see above, a Chebyshev distance can be converted to a Manhattan Distance if we rotate it by 45 degrees, and same for the other way around. This means,
+  
+  ``45 degree Rotated Chebyshev or Manhattan = Manhattan or Chebyshev respectively.``
+  
+  A simple way to rotate a Manhattan to a Chebyshev is,
+  for a point 
+  ``p=(x,y)``
+  we transform it as 
+  ``p’= (x+y , y-x)``
+  
+  This transforms a point by rotating it 45 degrees and scaling it.
+  
+  For ex.:
+  ![image.png](../assets/image_1683288664305_0.png)
+  
+  
   We have to find the max. Manhattan Distance between any 2 points here
   
   It is BC here and the MD is 5 as we can see.
   But we can also convert all points to use a CD by rotating all points by 45 degrees, like so
+  ![image.png](../assets/image_1683288686822_0.png)
+   
   
   Now for this graph the MD will be different but the CD will give us the MD for graph 1. 
-  So for any 2 points in the rotated graph, CD = max(|x1’-x2’, y1’-y2’|)
+  So for any 2 points in the rotated graph, 
+  $$\text {CD} = \max ( \left | x_{1’} - x_{2’}, y_{1’} - y_{2’} \right|)$$
   where x’ and y’ are the rotated points.
-- This has the benefit that now, we can look at each axis separately, so between any 2 points if their x or their y coordinate has maximum difference then they will give the max. MD.
+  
+  This has the benefit that now, we can look at each axis separately, so between any 2 points if their x or their y coordinate has maximum difference then they will give the max. MD.
 - Sweep-Line Algorithms
   The idea with these algs is to represent a problem in the cartesian plane and its events as points in it. Then we process the events in the increasing order of their x or y co-ordinates.
 - Intersection Points
