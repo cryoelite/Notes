@@ -203,6 +203,56 @@
 	  
 	  
 	  A naïve approach here would be checking if the ray of sufficient length making a line segment from a given point, say b, intersects with any of the line of the polygon, so we check line segment b to ray end against all line segments of the polygon (we can use case 3 of checking if a line intersects) and see how many lines the ray intersects
+	  
+	  In cpp,
+	  ```cpp
+	      //Raycasting Alg
+	      void start()
+	      {
+	          CD extPoint{1e9+1,-1e9+1};//Any point on the outside.
+	                                 //We can use this point to check if any line segment from this point
+	                                 //to any other point intersects with the polygon and hence
+	                                 //performing Ray casting.
+	          bool isBoundary{false};
+	          for(int i{}, countsPoint{}; i<m;++i, countsPoint=0) {
+	              isBoundary=false;
+	              for(int j{}; j<n;++j){
+	                  CD& p1{points[i]};
+	                  CD& p2{extPoint};
+	  
+	                  CD& pips1{pips[j]};
+	                  CD& pips2{pips[(j+1)%n]};
+	  
+	                  double resPip1{crossProduct(p1, p2, pips1)};
+	                  double resPip2{crossProduct(p1, p2, pips2)};
+	                  double resP1{crossProduct(pips1, pips2,p1)};
+	                  double resP2{crossProduct(pips1, pips2, p2)};
+	  
+	                  if(resP1==0 && isMid(pips1, p1,pips2))
+	                  {
+	                      isBoundary=true;
+	                      break;
+	                  }
+	                  else if((resPip1*resPip2) < 0 && (resP1*resP2)<0){
+	                      countsPoint++;
+	                  }
+	              }
+	              if (isBoundary)
+	              {
+	                  results[i]="BOUNDARY";
+	              }
+	              else if(countsPoint==0 || countsPoint % 2 == 0){
+	                  results[i]="OUTSIDE";
+	              }
+	              else {
+	                  results[i]="INSIDE";
+	              }
+	          }
+	          output();
+	      }
+	  ```
+	  where ``pips``(size n) are the vertices of the polygon and ``points``(size m) are the points to be tested if they are inside or outside. The logic is pretty simple, we set up an external point (which has to be guaranteed to be outside the polygon) and for each point to be tested, we create a line segment between the point and the external point and then test their line segment against all line segments of the polygon. The end result are 3 conditions, either the point lies on the boundary/in mid of any line segment of the polygon, or it is outside meaning the no. of line segments it intersects are either 0 or divisible by 2, or inside otherwise. 
+	  We need to check the ray against all line segments of the polygon because we don't know which line segments it intersects (unlike how we see visually).
 -
 - Area of a Polygon
   There are 2 simple ways to calculate the area enclosed by a polygon, dividing a polygon into known shapes and summing the parts. Or using formulae such as shoelace formula, aka Gauss’ Area Formula, aka Surveyor’s Formula. 
@@ -229,15 +279,34 @@
   
   The area of each trapezoid here is 
   $$Area = (x_{i+1} - x_{i})*\frac{(y_{i} + y_{i+1})}{2}$$
+  
+  In CPP,
+  ```cpp
+      void start()
+      {
+          double value{};
+          CD* next{nullptr};
+          for(int i{}; i<n;++i) {
+              next= &points[(i+1)%n];
+              value += ((points[i].R* (*next).I) - ((*next).R * points[i].I));
+          }
+  
+          result = static_cast<int>(abs(value)); //multiplying with 1/2 and 2, i.e. 1.
+          output();
+      }
+  
+  ```
+  Here we simply go through each point and its next point and sum this value then simply multiply the result with 1/2 as that's in the formula for each trapezium and multiply with 2 to cancel it out and ensure the integer remains an integer (1/2 of an integer can be double, but the inputs are strictly integer).
 - Pick’s Theorem 
   Tells us the area of a polygon is
   $$\text Area = a + \frac{b}{2} - 1$$
-  where a are the integer points strictly inside the polygon and b are the integer points exactly on the boundary of the polygon.
+  where a are the integer points strictly inside the polygon and b are the integer points exactly on the boundary of the polygon. Integer co-ordinates are also known as lattice points.
   For ex.:
   ![image.png](../assets/image_1683281026895_0.png)
    
   
   Here, a = 6 and b = 7.
+  So there are said to be 6 lattice points inside and 5 on the boundary.
 - Distance Functions
   Defines the distance between any 2 points, there’s the standard Euclidean distance, which is the plain and straight distance to a point
   $$\text{Euclidean Distance} = \sqrt{ (x_2 - x_1)^2 + (y_2-y_1)^2 }$$
