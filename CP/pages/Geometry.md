@@ -367,7 +367,7 @@
   Now for this graph the MD will be different but the CD will give us the MD for graph 1. 
   So for any 2 points in the rotated graph, 
   $$\text {CD} = \max ( \left | x_{1’} - x_{2’}, y_{1’} - y_{2’} \right|)$$
-  where x’ and y’ are the rotated points.
+  where x’ and y’ are the rotated points. and this CD is actually the MD for the normal graph.
   
   This has the benefit that now, we can look at each axis separately, so between any 2 points if their x or their y coordinate has maximum difference then they will give the max. MD.
 - Sweep-Line Algorithms
