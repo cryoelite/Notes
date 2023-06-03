@@ -2,7 +2,7 @@
 - 2 types: Unary and Binary. Unary means the operator accepts a single operand, binary means 2.
 - Supported Operators in [[ECMAScript]]
   ![image.png](../assets/image_1685373168911_0.png)
-- [[string]] concatenation adds 2 strings together.
+- [[String]] concatenation adds 2 strings together.
 - The binary "+" is the only operator that supports strings in such a way. Other ops don't.
   For ex.:
   ```js

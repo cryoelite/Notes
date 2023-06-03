@@ -74,7 +74,7 @@
                           // alert( "Hello" );
                           // }
   ```
-  ``alert(...)`` gets the function body converted to [[string]] and prints that. 
+  ``alert(...)`` gets the function body converted to [[String]] and prints that. 
   This also allows us to assign the function to other variables.
 - Callback Function
   A function passed as a parameter to another function.

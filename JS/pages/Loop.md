@@ -12,4 +12,5 @@
   for(let key in x) {...} //use x[key] to access values or just key to access property names.
   ```
   It doesn't loop over [[Symbol]] properties.
--
+- for..of Loop
+  With [[string]]s

@@ -194,6 +194,33 @@
   
   And this also Op also works with delete,
   ``delete y?.name;``
+- [[Object]] Wrapper:
+  Primitive types have no properties/methods, they only have values as they are meant to be fast and lightweight. This is why JS provides Object wrappers for almost all primitive types, as these Objects provide the utility methods and also store the type and its value.
+  A key principle of Object wrappers is to never return the Object wrapper itself, always the primitive value associated with it. 
+  For ex.:
+  ```js
+  let x = String("yo") //is an Object Wrapper String(), but it returns the primitive type string.
+  ```
+  
+  We can get the Object wrapper back from an Object Wrapper using [[new]], however it is highly unrecommended.
+  ```js
+  let x = new Number(2) //returns an Object
+  ```
+  This is only valid as it is meant for internal use only.
+  
+  As for properties and methods on primitive values, they come from the Object Wrappers, but JS simply inserts the methods/properties automatically.
+  ```js
+  let x = 2;
+  x.toString();
+  ```
+  Here .toString() is added automatically by JS later.
+  For [[Number]] specifically, if we want to call a method/property on a direct value, we have to use 2 dot [[Operator]] ``..``, this is to avoid ambiguity we'd have with a single dot which also stands for decimal.
+  For ex.:
+  ```js
+  123..toString(); //ok
+  //or
+  (123).toString();
+  ```
 -
--
--
+- [[null]] and [[undefined]] have no Object Wrappers associated with them.
+- ``Object.is(a,b)`` is the same as ``a===b`` for [[Comparison]]. However it also handles 2 edge cases, if a and b are NaN, it returns true as [[NaN]] returns false by direct comparison. Secondly it returns false if a is -0 and b is 0 (or the other way around).

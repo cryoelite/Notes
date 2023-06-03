@@ -15,7 +15,7 @@
   
   For ex.:
   ``alert(...)`` works with Strings, so JS passes the hint "string".
-- [[string]] conversion:
+- [[String]] conversion:
   ``String(<value/variable>)`` converts stuff into string. It is pretty straight-forward as values like false become "false", null becomes "null" etc.
 - [[Number]] conversion:
   aka ``Numeric Conversion``
@@ -23,7 +23,7 @@
   ```js
   let v= "6"/"2"; //converts 6 and 3 into numbers, applies division and stores the result 3 in v.
   ```
-  implicit conversion. (Note: This doesn't always happen, for ex. in [[string]] concatenation)
+  implicit conversion. (Note: This doesn't always happen, for ex. in [[String]] concatenation)
   
   ``Number(<val/var>)`` explicit, returns [[NaN]] if conversion fails.
   Some more rules:
@@ -32,7 +32,7 @@
   Explicitly done with ``Boolean(<val/var>)``
   
   Rules:
-  0, empty [[string]], [[null]], [[undefined]], [[NaN]] become false.
+  0, empty [[String]], [[null]], [[undefined]], [[NaN]] become false.
   All other values become true.
   For ex.:
   ```js

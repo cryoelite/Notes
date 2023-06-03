@@ -1,3 +1,4 @@
+- [[Object]] wrapper for primitive type ``symbol``
 - A ``symbol`` represents a unique identifier in JS.
   For ex.:
   ```js

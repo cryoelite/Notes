@@ -107,20 +107,17 @@ alias:: JavaScript
   x=2;  //works, type is now int
   
   ```
-  There are [[Primitives]] and then there is [[Object]] and [[Symbol]] 
+  There are 7 [[Primitives]] and then there is [[Object]]
   
   * [[Number]]
-  
-  * [[string]]
-  
+  * [[String]]
   * [[Boolean]]
   * [[null]]
-  
+  * [[BigInt]]
   * [[undefined]]
+  * [[Symbol]]
   
   * [[Object]]
-  
-  * [[Symbol]]
 -
 - typeof
   An [[Operator]] . Returns the type of a value/variable in string.

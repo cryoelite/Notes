@@ -1,4 +1,7 @@
+- [[Object]] wrapper for primitive type ``string``.
+- Strings are stored with UTF-16 encoding in JS.
 - For ex.:
+  title:: String
   ```js
   //3 ways of declaring strings
   let x= "Yo"
@@ -18,4 +21,14 @@
   let b= 1+2+"3"; //is "33"
   ```
   This also shows that [[Operator]]s are solved from left to right if they have the same precedence, so if an operand on the left converts the result to string, the ones to the right follow string concatenation.
+- [Tagged Templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates): 
+  We can call a function before a string is processed, the syntax is ``<func> <string enclosed in backticks>``. The function receives the string, processes it and returns the string.
+- Special Characters are supported in JS:
+  ![image.png](../assets/image_1685814128037_0.png){:height 265, :width 778}
+  
+  ``\`` is the escape character in JS. 
+  
+  Yes each special character is just a single character.
+- ``.length`` to get a string's length.
+- ``[<num>]`` or ``.at(<num>)`` to access individual character of a string. ``.at()`` can also go from the right end if we use a negative number.
 -

@@ -1,3 +1,4 @@
+- [[Object]] wrapper for primitive type ``boolean``
 - The usual, ``true`` and ``false`` from expressions or raw values.
   For ex.:
   ```js
