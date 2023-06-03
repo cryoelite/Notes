@@ -118,6 +118,8 @@ alias:: JavaScript
   * [[Symbol]]
   
   * [[Object]]
+  
+  And collection of types is called an [[Array]].
 -
 - typeof
   An [[Operator]] . Returns the type of a value/variable in string.

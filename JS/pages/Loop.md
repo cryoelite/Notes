@@ -13,4 +13,10 @@
   ```
   It doesn't loop over [[Symbol]] properties.
 - for..of Loop
-  With [[string]]s
+  With [[String]]s we can use this loop to loop over the characters of the String.
+  For ex.:
+  ```js
+  let x = "...";
+  for (let char of x) {...}
+  ```
+-

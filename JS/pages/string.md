@@ -31,4 +31,12 @@
   Yes each special character is just a single character.
 - ``.length`` to get a string's length.
 - ``[<num>]`` or ``.at(<num>)`` to access individual character of a string. ``.at()`` can also go from the right end if we use a negative number.
+- Strings are immutable in JS, we can access individual chars but not mutate them.
+- Methods like ``<str>.toLowerCase()``, ``<str>.toUpperCase()``, ``<str>.slice(start, optional end)``, ``<str>.substring(start, optional end)``, ``<str>.substr(start,length)``, ``<str>.indexOf(<value>)`` etc exist.  
+  Slice and Substring are the same except substring swaps start and end if start>end.
+  
+  To convert a char to int, 
+  ``<str>.codePointAt(<position>)``
+  To convert an int to char
+  ``String.fromCodePoint(<value>)``
 -
