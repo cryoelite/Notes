@@ -1,0 +1,2 @@
+- ``console.log(<any number and type of values>)`` logs stuff to the console. It implicitly converts the arguments to string.
+-

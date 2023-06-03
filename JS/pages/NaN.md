@@ -1,0 +1,1 @@
+- Special [[Number]] value that always returns false when compared against any other Number.

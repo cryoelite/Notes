@@ -1,0 +1,1 @@
+- There's also a keyword ``debugger``, if the [[Developer tools]] are open, and this keyword is present in a script in a webpage then the Debugger automatically stops at this keyword.

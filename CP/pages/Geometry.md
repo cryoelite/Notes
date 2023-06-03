@@ -316,7 +316,7 @@
   ![image.png](../assets/image_1683282352124_0.png)
   *There’s another type of distance metric known as a Manhattan Distance which uses a grid-like path, or rather the sum of the differences in each of the cartesian co-ordinates. 
   That is,
-  $$\text Manhattan Distance = \left | x_1 - x_2 \right | + \left | y_1- y_2 \right |$$
+  $$\text {Manhattan Distance} = \left | x_1 - x_2 \right | + \left | y_1- y_2 \right |$$
   
   We basically summed the difference of the cartesian co-ordinates, this means we follow a grid-like path to the point and not a straight line like so
   ![image.png](../assets/image_1683288296272_0.png)
@@ -372,4 +372,6 @@
   This has the benefit that now, we can look at each axis separately, so between any 2 points if their x or their y coordinate has maximum difference then they will give the max. MD.
 - Sweep-Line Algorithms
   The idea with these algs is to represent a problem in the cartesian plane and its events as points in it. Then we process the events in the increasing order of their x or y co-ordinates.
-- Intersection Points
+  
+  * [[Intersection Points]]
+-

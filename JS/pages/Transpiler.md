@@ -1,0 +1,2 @@
+- New features to JS are added regularly, such as the [[Nullish-Coalescing Operator]] added in 2020. To maintain compatibility with older browser versions, a process called Transpilation is used, done through a Transpiler such as [[Babel]] or [[Webpack]] (Implicitly). This tool converts new JS code into code that the target version can understand, so for Null-Coalescing Operator ``??`` it might generate a simple ``x !== undefined && x!== null``.
+-

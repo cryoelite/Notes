@@ -1,0 +1,21 @@
+- For ex.:
+  ```js
+  //3 ways of declaring strings
+  let x= "Yo"
+  x= 'Yo'
+  let y=2
+  x= `Yo ${y}`
+  ```
+  The former 2 are the same, but backticks provide extended functionality, i.e., allowing us to embed other variables and expressions into them with ``${...}``
+- There is no char type in JS.
+- String concatenation:
+  We can concat 2 strings with <string val/var> + <string val/var>
+  
+  Any other type of value also gets converted to string.
+  For ex.:
+  ```js
+  let a= "1"+2+3; //is "123"
+  let b= 1+2+"3"; //is "33"
+  ```
+  This also shows that [[Operator]]s are solved from left to right if they have the same precedence, so if an operand on the left converts the result to string, the ones to the right follow string concatenation.
+-

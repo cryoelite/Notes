@@ -1,0 +1,1 @@
+- The standard ``//`` for single line and ``/* */`` for multi-line.

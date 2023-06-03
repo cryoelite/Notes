@@ -1,0 +1,2 @@
+- Just like the [[Transpiler]] except instead of converting new syntax into compatible older syntax, it adds missing functions. So if a new JS version includes a new method and we target an old one, then polyfill will simply define that function. [core js](https://github.com/zloirock/core-js) and [polyfill.io](https://polyfill.io/v3/) are good polyfill tools.
+-
