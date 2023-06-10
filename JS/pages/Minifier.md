@@ -1,0 +1,3 @@
+- It's a special program meant to space extra space by removing characters from everywhere possible in the code resulting in smaller script sizes which is crucial for the web as the same script has to be downloaded by multiple users. 
+  
+  It removes comments, extra spaces, shortens variable names, function names etc. like ``name mangling`` in [[C++]] etc in a smart manner to not affect the execution at all.

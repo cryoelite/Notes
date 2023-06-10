@@ -39,4 +39,4 @@
   ``<str>.codePointAt(<position>)``
   To convert an int to char
   ``String.fromCodePoint(<value>)``
--
+- ``.split(<str sep>)``: Returns an [[Array]] from a string.

@@ -75,19 +75,28 @@
   }
   y.name; //works and returns "yo"
   ```
-- Keys / Property Names can be either strings or [[Symbol]]s only, the other type are converted to strings. There is no restriction to a property's name as well.
+- Keys / Property Names can be either strings or [[Symbol]]s only, the other type are converted to strings. There is no restriction to a property's name as well. We don't need to use ``" "`` for strings for property names, it is automatically inserted.
   For ex.:
   ```js
   let x= { 
     return: 2, //ok
+    "yo": 23, //  using string syntax
     0: 2, //0 is of type Number, so it is converted to "0"
   }
   x.return; //works, returns 2
   x["0"]; //returns 2 
   ```
   There is a special property [[__proto__]] which can't be set for an Object to a non-Object value, that is ``x.__proto__= 2; `` will work but retrieving ``x.__proto__`` will return ``[object] [object]``.
-- for..in [[Loop]] can be used with [[Object]]
-- We can also get all the keys of an Object with ``Object.keys(<obj var>)``
+-
+- Methods
+  * [Object.keys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) – returns an [[Array]] of keys (doesn't include [[Symbol]] properties).
+  * [Object.values(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values) – returns an array of values.
+  * [Object.entries(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) – returns an array of `[key, value]` pairs.
+  ``Object.getOwnPropertySymbols(obj)`` to get array of Symbol Keys.
+  ``Reflect.ownKeys(obj)`` to get array of all keys, including Symbol properties.
+-
+- for..in [[Loop]] can be used with [[Object]], and also with the various methods of Object that return arrays.
+  This loop doesn't iterate over Symbol Keys.
 - Integer Properties and Ordering
   When we loop over keys of an Object, they appear in the order they were created unless they are Integer Properties.
   
@@ -224,3 +233,4 @@
 -
 - [[null]] and [[undefined]] have no Object Wrappers associated with them.
 - ``Object.is(a,b)`` is the same as ``a===b`` for [[Comparison]]. However it also handles 2 edge cases, if a and b are NaN, it returns true as [[NaN]] returns false by direct comparison. Secondly it returns false if a is -0 and b is 0 (or the other way around).
+-

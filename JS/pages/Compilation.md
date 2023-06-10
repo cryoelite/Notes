@@ -1,0 +1,1 @@
+- JS is interpreted line-by-line in browser [[<script>]]s , however it is also compiled as most modern browsers use JIT to compile only necessary code.

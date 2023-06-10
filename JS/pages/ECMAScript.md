@@ -12,12 +12,14 @@ alias:: JavaScript
   domains unless explicitly allowed by both domains, etc. These are not present
   in JS outside the scripts in webpages.
   
-  Execution
+  Note: Generally both Web browsers and Node.JS use V8, node simply provides a large runtime library that allows the V8 to do a lot of stuff on the server side.
+- Execution
   For browsers, any .html file that uses a <script> tag with inline js or external js file as
   source can execute a js file.
   For server-side, or locally, we can use node <filename.js> to execute it using Node.js.
   
   Browsers have " [[Developer tools]] " which present various developer friendly tools to inspect a page's script and behaviors.
+- [[Compilation]]
 - Semicolons are optional but a good practice, otherwise line break is considered the end of a statement (called implicit semicolon and the feature called [[automatic semicolon insertion]]).
   But a single line can have multiple statements with a semicolon.
   
@@ -74,7 +76,7 @@ alias:: JavaScript
   ```
   ``let`` prohibits redeclaration.
   
-  Or ``var`` for the same, however var is an old way and declares variables quite differently.
+  Or [[var]] for the same, however [[var]] is an old way and declares variables quite differently. 
   
   Variables can be named however as long as they aren't [[Reserved Words]], can use letters(unicode)/digits/'$'/'_' and mustn't begin with digits.
   
@@ -118,25 +120,19 @@ alias:: JavaScript
   * [[Symbol]]
   
   * [[Object]]
+- Other complex types also exist in JS:
+  Collection of values: [[Array]]
+  Object like Dictionary: [[Map]]
+  Collection of unique values: [[Set]]
+  [[Date]]
+  [[JSON]]
   
-  And collection of types is called an [[Array]].
+  
+  Weaker variants:
+  [[WeakMap]]
+  [[WeakSet]]
 -
-- typeof
-  An [[Operator]] . Returns the type of a value/variable in string.
-  
-  For ex.:
-  ```js
-  typeof 2 //"Integer"
-  
-  typeof null //"object"
-  
-  typeof Symbol("id") //"symbol"
-  
-  typeof alert //"Function"
-  ```
-  The typeof null is not "Object", this is a known error with typeof.
-  [[Function]]s are not a type in JS, they belong to [[object]] but typeof returns "Function" for the sake of convenience.
-  There's also the function variant of ``typeof(...)``, it's the same but uses a function instead.
+- [[typeOf]]
 - Interaction
   
   ``Alert``: Sends a message to the browser window and waits for the user to press "OK". Doesn't return anything.
@@ -172,3 +168,7 @@ alias:: JavaScript
 - [[Transpiler]]
 - [[Polyfill]]
 - [[Garbage Collection]]
+- [[Destructuring]]
+- [[Global]] [[Object]]
+- [[Scheduling]]
+-

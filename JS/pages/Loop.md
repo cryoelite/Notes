@@ -19,4 +19,43 @@
   let x = "...";
   for (let char of x) {...}
   ```
+- In general, for..of can be used with any [[Object]] that implements the [[Symbol]] Symbol.iterator. This property should hold a function that returns an Object which has a ``next()`` [[Function]] in it. This ``next()`` function then must return an Object with 2 keys,
+  {
+   done: boolean,
+   value: any,
+  };
+  
+  For ex.:
+  ```js
+  let x= { 
+   a: 0,
+   b: 5,
+   [Symbol.iterator]: function() {
+    return {
+     a: this.a,
+     b: this.b,
+     next() {
+       if (a<=b) 
+          return {done: false, value: this.a++};
+       else
+           return {done:true, value: this.a};
+      }
+    };
+   }
+  };
+  
+  for (let i of x) {...} //gets 0,1,2,3,4,5
+  
+  ```
+  for..of calls the function associated with Symbol.Iterator once and parses the Object returned from it.
+  Then it call's the next() method of that Object and keeps calling it until it returns an Object with done: true.
+  
+  This is also to say that we can simply use any Object's iterator explicitly as well.
+  For ex.:
+  ```js
+  let x = "abc";
+  let it= x[Symbol.iterator];
+  let val = it[next]();
+  while(!val[done]) {...};
+  ```
 -

@@ -1,0 +1,2 @@
+- It is an environment or rather a broad concept that refers to the collection of items JS engine creates when a [[Function]] is called. It includes other components such as the [[Variable Environment]], [[Lexical Environment]] and the [[this]] binding.
+-
