@@ -374,4 +374,6 @@
   The idea with these algs is to represent a problem in the cartesian plane and its events as points in it. Then we process the events in the increasing order of their x or y co-ordinates.
   
   * [[Intersection Points]]
+  * [[Closest Pair]]
+-
 -

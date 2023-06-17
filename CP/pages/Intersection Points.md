@@ -1,3 +1,5 @@
+alias:: Line Intersection
+
 - Suppose we have orthogonal line segments like so
   ![image.png](../assets/image_1684566689683_0.png)
   

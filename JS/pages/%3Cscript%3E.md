@@ -1,0 +1,2 @@
+- This [[HTML]] tag allows importing JS code into the HTML document, which is how the page can then execute the code.
+-

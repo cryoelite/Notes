@@ -18,7 +18,7 @@ alias:: JavaScript
   source can execute a js file.
   For server-side, or locally, we can use node <filename.js> to execute it using Node.js.
   
-  Browsers have " [[Developer tools]] " which present various developer friendly tools to inspect a page's script and behaviors.
+  Browsers have "[[Developer tools]]" which present various developer friendly tools to inspect a page's script and behaviors.
 - [[Compilation]]
 - Semicolons are optional but a good practice, otherwise line break is considered the end of a statement (called implicit semicolon and the feature called [[automatic semicolon insertion]]).
   But a single line can have multiple statements with a semicolon.
@@ -171,4 +171,6 @@ alias:: JavaScript
 - [[Destructuring]]
 - [[Global]] [[Object]]
 - [[Scheduling]]
--
+- [[Class]]
+- [[Asynchronous]]
+- [[Message Queue]]
