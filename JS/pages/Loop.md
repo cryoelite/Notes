@@ -47,6 +47,8 @@
   for (let i of x) {...} //gets 0,1,2,3,4,5
   
   ```
+  This [[Object]] is called an [[Iterable]].
+  
   for..of calls the function associated with Symbol.Iterator once and parses the Object returned from it.
   Then it call's the next() method of that Object and keeps calling it until it returns an Object with done: true.
   
@@ -57,5 +59,17 @@
   let it= x[Symbol.iterator];
   let val = it[next]();
   while(!val[done]) {...};
+  ```
+- We can also use [[Generator Function]]s with ``Symbol.Iterator``
+  For ex.:
+  ```js
+  let x = {
+   start: 0,
+   end: 5,
+   *[Symbol.Iterator]() {
+     for(let value= start; start<= end; ++start)
+     yield value;
+    }
+  }; //works 
   ```
 -

@@ -1,3 +1,5 @@
+filters:: {"generator function" true}
+
 - To create one, 
   ``function <name>(<param 1>, <param 2>...) {...}``
   If we have a function ``xyz`` we can call it with xyz();
@@ -378,5 +380,4 @@
   This is called a ``partial function application`` as it turns a function's arguments partial allowing us to skip them.
 - Arrow Functions have no ``this`` and no ``arguments`` variable either. So they can be used in wrapper functions, etc. without imposing ``this`` to their bodies. 
   They can't be used with ``.bind(...)``, ``.apply(...)`` or ``.call(...)``, called with ``new``.
--
 -
