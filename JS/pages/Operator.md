@@ -87,4 +87,28 @@
   ```
   
   [[Short-Circuit Evaluation]] is used. That is, in a logical operation the expression is solved from left-to-right converting all non-Boolean values to Boolean and checking them right away. For AND, the first ``false`` terminates/short-circuits the expression and false is returned, for OR the first ``true`` terminates the expression right away.
+- dot Operator
+  It is used to access whatever is on its left with whatever is on its right.
+  For ex.:
+  ```js
+  let x ={
+   a:2,
+   yo() {
+     console.log(this.a);
+    }
+   no() {
+   }
+  };
+  
+  x.yo(); //prints 2
+  let y = x.yo();
+  y(); //fails as ``this`` is undefined
+  
+  //Similarly
+  (x.a==2 ? x.yo: x.no)(); //fails as ``this`` is undefined
+  ```
+  [[this]] is [[undefined]] in these calls because whenever a [[Function]] is called using the dot Operator, the dot Op. doesn't return a function but a special [Reference Type](https://tc39.es/ecma262/#sec-reference-specification-type) which is an internal type from the spec.
+  It returns a 3 value combination ``(<base obj>, <prop name>, <is strict mode>)`` so ``x.yo()`` is actually ``(x,'yo',true)``, this allows JS to assign the correct ``this`` to the method. But when we explicitly copy just the function, the [[this]] is lost and hence the function, if relying on ``this``, fails.
+  
+  The ``[ ]`` access Operator works similarly in this case.
 -

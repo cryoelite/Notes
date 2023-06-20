@@ -1,7 +1,7 @@
 - [[Object]] wrapper for primitive type ``string``.
 - Strings are stored with UTF-16 encoding in JS.
-- For ex.:
-  title:: String
+- There are 3 ways of declaring strings
+  For ex.:
   ```js
   //3 ways of declaring strings
   let x= "Yo"
@@ -40,3 +40,27 @@
   To convert an int to char
   ``String.fromCodePoint(<value>)``
 - ``.split(<str sep>)``: Returns an [[Array]] from a string.
+- Each string character is represented by 1-4 bytes in JS as strings are represented by Unicode in JS.
+  We can also use unicode directly
+  * ``\xXX`` here \x says this is a unicode char, and XX are 2 hex digits so the range is 00 to FF.
+  For ex.:
+  ```js
+  console.log("\x7A"); //prints z
+  ```
+  * ``\uXXXX``
+  * ``\u{X->XXXXXX}``, that is 1 to 6 hex chars.
+- Initially, JS only supported 2 bytes per char and this lead to ``surrogate pairs`` which are special representations of characters that took more than 2 bytes to be stored, as a result we get
+  ```js
+  console.log('𝒳'.length); //2
+  console.log('😂'.length); //2
+  console.log('𩷶'.length); //2
+  ```
+  Surrogate Pairs are useless without the whole, so visiting a byte of a surrogate pair returns weird symbols.
+- String to Int and Int to String
+  * [String.fromCodePoint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint) : Understands surrogate pairs
+  and
+  ``String.fromCharCode`` which doesn't
+  
+  * [str.codePointAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt): Understands surrogate pairs
+  and
+  ``String.charCodeAt``which doesn't

@@ -174,3 +174,6 @@ alias:: JavaScript
 - [[Class]]
 - [[Asynchronous]]
 - [[Message Queue]]
+- [[Proxy]]
+- [[Eval]]
+- [[Currying]]

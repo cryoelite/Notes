@@ -20,7 +20,44 @@ filters:: {"generator function" true}
   ```
   Here y and z are ``default`` parameters as when they are provided no value or undefined (strict equality) then the given default value is evaluated and assigned.
   
-  This is also to say, in JS functions can receive any number of args despite their parameters, if there are more args than parameters then extra args are ignored, if there are less args than parameters then the unassigned parameters are [[undefined]]. And this is also to say, functions in JS are uniquely identified by just their names.
+  This is also to say, in JS functions can receive any number of args despite their parameters, if there are more args than parameters then extra args are ignored, if there are less args than parameters then the unassigned parameters are [[undefined]]. 
+  
+  And this is also to say, functions in JS are uniquely identified by just their names. Which is to say there is no function overloading in JS, as there can be only 1 function with a given name, if there's more, one of them has the other [[Shadowed]]
+  For ex.:
+  ```js
+  function yo(a) {
+    console.log("1");
+  }
+  
+  function yo() {
+    console.log("2");
+  }
+  
+  let x=  {
+      yo(){
+          console.log("1");
+      },
+      yo(){
+          console.log("2");
+      }
+  };
+  
+  class X{
+      yo(){
+          console.log("1");
+      }
+      yo(){
+          console.log("2");
+      }
+  }
+  yo(); //prints 2
+  x.yo(); //also prints 2
+  
+  let obj= new X();
+  obj.yo(); //also prints 2
+  ```
+  The same is true in [[Class]]es and [[Object]]s.
+-
 - We can check if a parameter is provided a value with the [[Nullish-Coalescing Operator]] or the || or explicit check for undefined.
   ```js
   function xyz(x) {
