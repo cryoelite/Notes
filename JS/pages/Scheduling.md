@@ -21,14 +21,14 @@
   ![image.png](../assets/image_1686239876001_0.png)
   setInterval with 100ms delay
   
-  No matter how much delay we choose, it will run set...'s code after the synchronous code has finished executing. 
+  No matter how much delay we choose, even 0, it will run set...'s code after the synchronous code has finished executing in the [[Message Queue]]. 
   For ex.:
   ```js
   setTimeout(() => console.log("World"));
   
   console.log("Hello"); //prints "Hello World"
   ```
-  0-delay is also not quite 0 in web browsers, this is because according to [[HTML]] spec, after 5 nested 0-delay set... calls, the minimum delay between the next call will be at-least 4ms.
+  That is also to say, 0-delay is also not quite 0 in web browsers, because according to [[HTML]] spec, after 5 nested 0-delay set... calls, the minimum delay between the next call will be at-least 4ms.
   
   The functions passed to these functions lose their ``this``, as we see in Caching in [[Function]]s. However, in browsers, ``set...`` sets their passed function's ``this`` to  the [[window]] [[Object]], for Node.js, ``this`` is set to the timer [[Object]].
 -

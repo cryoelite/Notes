@@ -82,7 +82,7 @@ alias:: Async
   .catch(...) //will be triggered
   .then(...) //will be executed normally, i.e., the catch didn't halt the chain.
   ```
-  But the key point is, there must always be a ``reject`` handler at the end using either ``.then`` or ``.catch``, errors that are unhandled crash the whole script in JS and raise an ``unhandledrejection`` [[Event]] in the [[Browser]].
+  But the key point is, there must always be a ``reject`` handler at the end using either ``.then`` or ``.catch``, errors that are unhandled crash the whole script in JS and raise an ``unhandledrejection`` [[Browser Event]] in the [[Browser]].
     
   
   * We can have a Promise executed immediately too, such are Promises that have no async code inside them.

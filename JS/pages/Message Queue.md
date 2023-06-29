@@ -7,7 +7,7 @@
   
   This includes everything, even things like [[Rendering]] the changes to [[DOM]] as that task is appended in it too and only after the tasks before it are processed is the DOM modified and rendered. However, Rendering is done after a certain point in macrotask queue when the microtask queue is started and finished.
   
-  This means, if a task takes too long in the macrotask queue, it puts the entire [[WebPage]] on a pause, even [[Event]]s can't be handled as the event handlers are also in this queue.
+  This means, if a task takes too long in the macrotask queue, it puts the entire [[WebPage]] on a pause, even [[Browser Event]]s can't be handled as the event handlers are also in this queue.
   
   This is why [[Asynchronous]] tasks are put in a separate queue with only their callers in the macrotask queue, like we can see ``setTimeout`` above. So the macrotask ``setTimeout`` puts stuff in the other queue and finishes then the macrotask queue continues.
 - ``Microtask Queue``

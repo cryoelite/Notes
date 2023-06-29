@@ -13,6 +13,7 @@ alias:: JavaScript
   in JS outside the scripts in webpages.
   
   Note: Generally both Web browsers and Node.JS use V8, node simply provides a large runtime library that allows the V8 to do a lot of stuff on the server side.
+- JS files are saved with the extension ``.js``
 - Execution
   For browsers, any .html file that uses a <script> tag with inline js or external js file as
   source can execute a js file.
@@ -177,3 +178,4 @@ alias:: JavaScript
 - [[Proxy]]
 - [[Eval]]
 - [[Currying]]
+- JS can run on any platform that can run the V8 engine or any JS engine, these platforms are called ``Host Environment``s , like Node.JS which provides functionality for creating and running servers using JS and [[Browser]]s which provide the [[window]] Object and some others to help JS interact and manipulate the [[DOM]], [[BOM]] and core JS functionality.

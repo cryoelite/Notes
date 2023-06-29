@@ -70,7 +70,7 @@ alias:: Proxy Object
   Reflect.set(x,'a',2);
   console.log(x[a]); //prints 2
   ```
-- Not all inbuilt [[Objects]] can be Proxied similarly, this is because apart from internal methods and properties, Objects also have  ``internal slot``s. These are special internal properties reserved for internal use, like [[Map]] has ``[MapData]``, these are not trapped by the ``Proxy`` Object so the operations fail on proxy objects. 
+- Not all inbuilt [[Object]] can be Proxied similarly, this is because apart from internal methods and properties, Objects also have  ``internal slot``s. These are special internal properties reserved for internal use, like [[Map]] has ``[MapData]``, these are not trapped by the ``Proxy`` Object so the operations fail on proxy objects. 
   For ex.:
   ```js
   let map = new Map();

@@ -1,4 +1,4 @@
-- [[ECMAScript]] and [[Web]] 
+- [[ECMAScript]]
   Last Updated: [[Jun 20th, 2023]] 
   Primary Source: https://javascript.info/
   Language Version: ECMAScript 2022, Node.js 19.9.0

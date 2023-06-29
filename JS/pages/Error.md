@@ -63,7 +63,7 @@ alias:: Exception
   
   External error-handling utilities make use of these handlers and set them to custom values. So when we insert a JS [[<script>]] URL from one of these services, they assign a custom value to these methods and then provide the details by sending errors to their [[API]]s.
   For ex.: [muscula](https://www.muscula.com/)  and [errorception](https://errorception.com/)
-- ``unhandledrejection`` [[Browser]] [[Event]]
+- ``unhandledrejection`` [[Browser]] [[Browser Event]]
   Can be caught with
   ```js
   window.addEventListener('unhandledrejection', function(event) {
