@@ -413,3 +413,10 @@
  ;;      ;use Percent-encoding for other invalid characters
  :file/name-format :triple-lowbar
  :graph/settings {:builtin-pages? false, :journal? false}}
+
+
+;; Custom Config
+:custom-css-url "@import url('https://logseq.catppuccin.com/ctp-latte.css');"
+:custom-css-url "@import url('https://logseq.catppuccin.com/ctp-frappe.css');"
+:custom-css-url "@import url('https://logseq.catppuccin.com/ctp-macchiato.css');"
+:custom-css-url "@import url('https://logseq.catppuccin.com/ctp-mocha.css');"

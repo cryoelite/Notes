@@ -27,6 +27,8 @@ alias:: Document Object Model
   ![image.png](../assets/image_1687267144086_0.png)
   by the DOM
   Newline character and spaces between [[HTML]] tags is completely valid Objects for DOM, that is why we see them here.
+  
+  * The ``document`` Object is a property of the [[window]] Object. So accessing ``document.<someprop>`` is the same as accessing ``window.document.<someprop>``.
 - The general rule is, everything in an HTML page is a part of the DOM tree. Even the ``<!DOCTYPE...`` directive.
 - Every attribute of an [[HTML Element]] is mapped to a [[DOM Class Property]] on its node. 
   However, whilst HTML attributes are case insensitive, DOM attributes are case sensitive as JS is case sensitive.

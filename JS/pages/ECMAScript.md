@@ -179,3 +179,4 @@ alias:: JavaScript
 - [[Eval]]
 - [[Currying]]
 - JS can run on any platform that can run the V8 engine or any JS engine, these platforms are called ``Host Environment``s , like Node.JS which provides functionality for creating and running servers using JS and [[Browser]]s which provide the [[window]] Object and some others to help JS interact and manipulate the [[DOM]], [[BOM]] and core JS functionality.
+- [[ArrayBuffer]]
