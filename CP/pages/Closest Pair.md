@@ -18,7 +18,7 @@
   * First we sort the points based on their x-axes, and y-axes if x is the same. Unlike in [[Line Intersection]], the y-axis can be sorted in either asc/desc order.
   ![image.png](../assets/image_1686380077516_0.png){:height 222, :width 225} 
   
-  * Next we create the MED, ``d`` initialized at Infinity and a [[Set]] which will have the processed points in it sorted by their y-axes.
+  * Next we create the MED, ``d`` initialized at Infinity and a [[C++ Set]] which will have the processed points in it sorted by their y-axes.
   
   * Next, we go through the sorted points in left-to-right iteration. 
   

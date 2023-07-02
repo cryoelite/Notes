@@ -1,5 +1,5 @@
 - We deal with geometric shapes here.
-- [[Complex Numbers]]: MSVC and GCC have a library <complex> that can be used to represent complex numbers.
+- [[Complex Number]]: MSVC and GCC have a library <complex> that can be used to represent complex numbers.
   Now CNs theirselves can use either floating or integer coordinates, so we can do
   ```cpp
   #define R real()
@@ -42,10 +42,10 @@
   vec*=polar(1.0,0.5);
   cout<<arg(vec); //0.963
   ```
-- [[Cross Product]]: For 2 vectors (CI/CD), a and b, the cross product is only defined for 3D. But if they are complex numbers then they can use Complex Number Multiplication and get a scalar value, this scalar value tells us the direction of b when its tail is placed at a’s tip. 
-  If a X b > 0, b turns left
-  a X b = 0, b turns 180 degrees or keeps straight after a
-  a X b < 0, b turns right.
+- [[Cross Product]]: For 2 vectors (CI/CD), a and b, the cross product is only defined for 3D. But if they are complex numbers then they can use [[Complex Number]] Multiplication and get a scalar value, this scalar value tells us the direction of b when its tail is placed at a’s tip. 
+  If $$\begin{aligned} a \times b > 0 \end{aligned}$$, b turns left
+  If $$\begin{aligned} a \times b = 0 \end{aligned}$$, b turns 180 degrees or goes straight ahead
+  If $$\begin{aligned} a \times b < 0 \end{aligned}$$, b turns right.
   
   ![image.png](../assets/image_1683265036139_0.png){:height 185, :width 597}
   
@@ -376,4 +376,4 @@
   * [[Intersection Points]]
   * [[Closest Pair]]
 -
--
+- [[Convex Hull]]
