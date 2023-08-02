@@ -1,0 +1,1 @@
+- Just like [[RefCell<T>]] but instead of a [[Reference Type]] to the same data, it internally creates new copies instead.

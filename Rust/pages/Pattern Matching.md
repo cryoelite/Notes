@@ -1,0 +1,258 @@
+- Pattern
+  They are a special syntax that allow Rust to perform matching against structures of types, both, simple and complex. Patterns allow a value to be compared against a special syntax and hence alter the flow of the program, i.e., [[Control Flow]].
+  
+  A pattern contains one or more of these:
+  * [[Literals]]
+  * [[Destructuring]] of [[Array]]s , [[Enum]]s , [[Struct]]s , or [[Tuple]]s 
+  * [[Variable]]s 
+  * Wildcards
+  * *Placeholders*: ``_`` the placeholder character.
+  
+  For ex.:
+  ```rust
+     let tup = (500, 6.4, 1);
+  
+      let (x, y, z) = tup;
+  ```
+  
+  Here pattern matching allows Destructuring of tuple ``tup`` and assign its values to the [[Variable]]s ``x``, ``y`` and ``z``.
+- Patterns are everywhere in Rust. Even a simple [[Variable]] assignment is a pattern.
+  As we know from ``while let`` [[Loop]] and ``if-let`` [[Conditional]], ``let`` denotes a pattern and expression assignment.
+  The simple ``let <varname>= <some value>`` is actually ``let <Pattern> = <Expression>``, which is why [[Tuple]] [[Destructuring]] also works.
+- Pattern Types
+  
+  There are 2
+  
+  * *Refutable Pattern*: Patterns that can fail to match an expression.
+  For ex.:
+  ```rust
+  fn main() {
+   let x: Option<i32> = None;
+   if let Some(value) = x { //will fail to match
+    } 
+  }
+  ```
+  * *Irrefutable Pattern*: Patterns that will match any value passed to the expression. Such as [[Variable]] assignment ``let <some var>=<some value>``.
+- ``match``
+  This is an advanced version of a *switch* block in other languages. It allows us to compare a value against patterns and then the pattern which matches has its block executed. This is even more powerful because Rust Compiler requires the match patterns to be exhaustive (otherwise an [[Error]]), meaning they must cover all possible values of a type. 
+  Furthermore, match is an [[Expression]] so it returns a value.  
+  
+  Syntax:
+  ``
+  match <variable/value> {
+   <Pattern 1> => <some expression>,
+   <Pattern 2> => {<expression, can also use blocks>
+    },
+   ...
+  };
+  ``
+  
+  
+  For ex.:
+  ```rust
+  enum X{
+  Y(i32),
+  Z
+  }
+  
+  fn main() {
+   let x = X::Y(2);
+   let z = match X { //puts 2 in z
+    X::Y(value) => 2,
+    X::Z => {
+      2+4
+     },
+   };
+  }
+  ```
+  The patterns are evaluated from top to bottom, and the first one that matches has its expression executed. After which the match block returns the expression's return value or [[Unit Type]] if no value is being returned explicitly. 
+  
+  * Each ``Pattern => Expression`` combo is called an arm, like *case* blocks for *switch* in other langs, but we don't need any ``break;`` statements since matches are [[Expression]]s, so every arm is expected to return the [[Control Flow]] back to the match.
+  
+  * Empty expression: If we desire an expression to do nothing we can simply do ``<Pattern> => ()`` or  ``<Pattern> => { }``(empty blocks return unit type) so it returns the [[Unit Type]] and does nothing.
+  
+  * Using catch-all and empty expression, we can create a *default* case of other langs, i.e., it's a pattern that matches everything and does nothing.
+  For ex.:
+  ```rust
+  fn main() {
+   let x = 2;
+   match x {
+   1=> 2,
+   _ => ()  //catch all, do nothing
+   }
+  };
+  ```
+- Patterns
+  
+  * [[Destructuring]] [[Enum]] 
+  Enums in patterns have their values binded to given [[Variable]]s automatically. 
+  For ex.:
+  ```rust
+  enum Yo {
+  	A(i32),
+  	B
+  }
+  
+  needs a match like,
+      let x= match a {
+         B => "na",
+         Yo::A(value) => "ya"
+      };
+  ```
+  
+   
+  
+  * Catch-all: We can use a variable to catch all values of a pattern, or the placeholder ``_`` character to catch all and ignore the caught value.
+  For ex.:
+  ```rust
+  fn main() {
+   let x = 2;
+   let y= match x {
+     0 => 0,
+     1 => 1+1,
+     value => value //matches all values, and puts them in the value variable
+   };
+   
+   let z= match x {
+     _ => 2, //catches all, but ignores them. If we use _ in the expression on the right, it'll be an error
+    };
+  }
+  ```
+  The placeholder character can only be used in a pattern. 
+  
+  * Matching named variables
+  For ex.:
+  ```rust
+  fn main() {
+      let x = Some(5);
+      let y = 10;
+  
+      match x {
+          Some(50) => println!("Got 50"),
+          Some(y) => println!("Matched, y = {y}"),
+          _ => println!("Default case, x = {:?}", x),
+      }
+  }
+  ```
+  
+  * Matching multiple values: Possible by using the ``|`` syntax, which is much like the ``||`` [[Operator]]. 
+  
+  For ex.:
+  ```rust
+  fn main() {
+      let x = 1;
+  
+      match x {
+          1 | 2 => println!("one or two"),
+          3 => println!("three"),
+          _ => println!("anything"),
+      }
+  }
+  
+  ```
+  
+  * Matching values within a [[Range]]: We use ``<start inclusive>..<end exclusive>`` . Can use ``=`` before end to have end inclusive.
+  For ex.:
+  ```rust
+  fn main() {
+      let x = 5;
+  
+      match x {
+          1..=5 => println!("one through five"),
+          _ => println!("something else"),
+      }
+  }
+  ```
+  
+  * [[Destructuring]] [[Struct]]s:
+  
+  For ex.:
+  ```rust
+  struct Point {
+      x: i32,
+      y: i32,
+  }
+  fn main() {
+      let p = Point { x: 0, y: 7 };
+  
+      match p {
+          Point { x, y: 0 } => println!("On the x axis at {x}"), //matches any x, but y as 0, puts both in x and y
+          Point { x: 0, y } => println!("On the y axis at {y}"),
+          Point { x, y } => {
+              println!("On neither axis: ({x}, {y})");
+          }
+      }
+  }
+  ```
+  The actual syntax is ``let <struct> { x: <varname>, y: <varname> } = p;`` but we can omit varnames if they are the same.
+  
+  * [[Destructuring]] [[Struct]]s and [[Tuple]]s
+  For ex.:
+  ```rust
+    struct Point {
+      x: i32,
+      y: i32,
+  }
+   fn main() {
+      let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 }); //creates 4 variables, x, y, feet and inches.
+  }
+  ```
+  
+  * Ignoring values: We can use the placeholder character, and same for [[Variable]]s. By [[Default Linter Rule]] if a variable name starts with ``_`` it is assumed to be unused and doesn't give a warning.
+  
+  We can ignore multiple values in patterns with ``..``.
+  For ex.:
+  ```rust
+  fn main() {
+      let numbers = (2, 4, 8, 16, 32);
+  
+      match numbers {
+          (first, .., last) => { //ignores all the rest
+              println!("Some numbers: {first}, {last}");
+          }
+      }
+  }
+  ```
+  
+  * *Match Guard*: Extra condition to ``match`` arms by using ``if`` [[Conditional]].
+  For ex.:
+  ```rust
+  fn main() {
+      let x = Some(5);
+      let y = 10;
+  
+      match x {
+          Some(50) => println!("Got 50"),
+          Some(n) if n == y => println!("Matched, n = {n}"),
+          _ => println!("Default case, x = {:?}", x),
+      }
+  
+      println!("at the end: x = {:?}, y = {y}", x);
+  }
+  ```
+  
+  * ``@`` Binding: The ``@`` [[Operator]] allows us to capture a value in a variable as well as test it on a pattern at the same time.
+  For ex.:
+  ```rust
+      enum Message {
+          Hello { id: i32 },
+      }
+  
+  fn main(){
+      let msg = Message::Hello { id: 5 };
+  
+      match msg {
+          Message::Hello {
+              id: id_variable @ 3..=7,
+          } => println!("yo"),
+          Message::Hello { id: 10..=12 } => {
+              println!("na")
+          }
+          Message::Hello { id } => println!("Found some other id: {}", id),
+      }
+  }
+  ```
+-
+-
+-
+-

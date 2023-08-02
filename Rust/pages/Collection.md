@@ -1,0 +1,6 @@
+- Advanced Data Types, that are formed by using the primitive types.
+- These [[Data Type]]s are generally on the heap and are provided by the [[Standard Library]]. They  store collections of values on heap, which allows them to have unfixed size and grow dynamically. But it also means these data types take time in (de)allocation.
+- All Collections can be found at [Docs](https://doc.rust-lang.org/std/collections/index.html)
+- [[Vector]]
+- [[String]]
+- [[HashMap]]

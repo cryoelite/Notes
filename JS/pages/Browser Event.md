@@ -167,3 +167,13 @@
   Events are synchronous, so if ``click`` event occurs and then immediately after it ``contextmenu`` occurs then the latter is queued up so the handlers for the ``click`` event will be called first then the ``contextmenu`` handlers.
   The only exception is when an event handler itself triggers another event, then the event is not queued up and its handlers are processed immediately. 
   We can use [[Scheduling]] to trigger an event from an event and have it processed afterwards.
+- Monitor Events
+  We can monitor events fired on any element using ``monitorEvents(<node>)`` [[Function]]. It returns an [[Object]] with every event triggered on the node with the event details, it basically returns the event Object itself like an observer on every event triggered on it.
+  
+  If we use it in the Chrome [[Debugging]] Console, it will print the event Object on a node each time the node receives an event.
+  For ex.:
+  ```js
+  monitorEvents($0)
+  ```
+  in the debug console would work as expected.
+-

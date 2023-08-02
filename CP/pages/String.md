@@ -1,4 +1,4 @@
-- String s of n characters with alphabets({a,b,....z}, i.e., set of lower-case Latin characters) is an array from s[0],s[1]....s[n-1].
+- String s of n characters with alphabets({a,b,....z}, i.e., [[Set]] of lower-case Latin characters) is an array from s[0],s[1]....s[n-1].
 - A ``substring`` s[a...b] is a string formed from the characters from int index a to b in s. This covers a continuous index range in the string.
 - A ``subsequence`` is a string/sequence formed from consecutive characters in a string (consecutive indices), every substring is a subsequence but the converse is false as a subsequence may not be formed from a continuous range of characters in the string but a substring must always cover a continuous index range. 
   For ex.:

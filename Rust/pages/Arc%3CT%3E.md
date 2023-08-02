@@ -1,0 +1,1 @@
+- Just like [[Rc<T>]] but can be shared across [[Thread]]s safely as it implements the ``Send`` [[Trait]] and ``Sync`` trait, and uses [[Atomic]]s to handle its internal reference counters.

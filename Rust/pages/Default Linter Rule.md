@@ -1,0 +1,1 @@
+- The names should follow snake_case and not camelCase or PascalCase. This is applied to all names, folder names, file names, variables, functions etc. However, it is not applied to things like type names where we need to follow CamelCase.

@@ -1,0 +1,1 @@
+- All expressions in Rust return some value, if they don't explicitly return any value then the [[Unit Type]] is returned implicitly.

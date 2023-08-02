@@ -1,0 +1,3 @@
+- Atomic [[Data Type]]s are safe to be shared across [[Thread]]s and are meant to be handled by multiple threads at once in [[Concurrency or Parallelism]]. 
+  They are defined in [``std::sync::atomic``](https://doc.rust-lang.org/std/sync/atomic/index.html).
+  However, the cost is atomic types have a huge performance overhead with all the concurrency checks in place so they must only be used when they are required.

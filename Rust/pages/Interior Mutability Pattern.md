@@ -1,0 +1,2 @@
+- Mutating immutably borrowed values is disallowed by Rust due to the Borrow Checker Rules. However, it is possible to bypass them in [[unsafe]] Rust.
+  Many of Rust's concepts already use this pattern, such as ``for`` [[Loop]]s.
