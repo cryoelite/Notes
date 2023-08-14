@@ -1,0 +1,1 @@
+- A ``substring`` s[a...b] is a [[String]] formed from the characters from int index a to b in s. This covers a continuous index range in the string.
