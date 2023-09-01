@@ -7,10 +7,7 @@ alias:: JavaScript
   
   It is a pretty “safe” language, as it doesn’t have low-level access. Still, its capabilities vary depending on the environment executing it, for browsers JS can manipulate the webpage, interact with web servers, get set cookies, remember “user data” etc. On servers (like in Node.js), it can do other things like File I/O etc.
   That said, JS on the browser has many limitations imposed to enforce security, such as not being
-  able to see contents of another tab in the browser, no access to OS, strict
-  browser managed access to peripherals, not being able to connect to other
-  domains unless explicitly allowed by both domains, etc. These are not present
-  in JS outside the scripts in webpages.
+  able to see contents of another tab in the browser, no access to OS, strict browser managed access to peripherals, not being able to connect to other domains unless explicitly allowed by both domains, etc. These are not present in JS outside the scripts in webpages.
   
   Note: Generally both Web browsers and Node.JS use V8, node simply provides a large runtime library that allows the V8 to do a lot of stuff on the server side.
 - JS files are saved with the extension ``.js``
@@ -38,7 +35,7 @@ alias:: JavaScript
   ``/* */`` for multi
 -
 - use strict;
-  Older JS standards (before ES5 in 2009) use now what's called the [[Old Mode]], but after it a non-breaking change was introduce called ``strict mode`` that complies with any new changes in the ECMA standard. This string at the top of a script or function enable strict mode. When applied globally, it is applied to the whole script, and for function it only enables it for the function. There's no way to disable it if enabled for a script.
+  Older JS standards (before ES5 in 2009) use now what's called the [[Old Mode]], but after it a non-breaking change was introduced called ``strict mode`` that complies with any new changes in the ECMA standard. This string at the top of a [[<script>]] or [[Function]] enables strict mode. When applied globally, it is applied to the whole script, and for function it only enables it for the function. There's no way to disable it if enabled for a script.
   
   
   For ex.:
@@ -121,6 +118,7 @@ alias:: JavaScript
   * [[Symbol]]
   
   * [[Object]]
+	-
 - Other complex types also exist in JS:
   Collection of values: [[Array]]
   Object like Dictionary: [[Map]]

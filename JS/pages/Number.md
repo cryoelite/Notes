@@ -33,7 +33,7 @@
   Octal: ``0o``
   Hex: ``0x``
   Binary: ``0b``
-- ``.toString(<optional base>)`` converts a number to int.
+- ``.toString(<optional base>)`` converts a number to int and returns a string.
   The method accepts a number between 2 to 36 and converts the number to that base and returns the value in string.
   For ex.:
   ```js

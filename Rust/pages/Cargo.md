@@ -3,6 +3,8 @@
 - ``cargo new``
   We can create a new project with ``cargo new <folder/projectname>``.
   We can then build the project with ``cargo build``. And then run it with ``cargo run``.
+  
+  * Library [[Crate]] can be created with ``cargo new <name> --lib``.
 - ``cargo build``
   Builds the project and creates an executable in ``src/debug/`` . Use ``--release`` flag to build in release mode. A general difference between debug build and release build is that debug build is compiled faster but runs slower whereas release compiles slower but runs faster.
 - ``cargo run``

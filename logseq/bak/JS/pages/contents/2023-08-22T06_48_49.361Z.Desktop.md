@@ -1,0 +1,8 @@
+- [[ECMAScript]]
+- Last Updated: April 14, 2023
+- Primary Source: https://javascript.info/
+- Language Version: ECMAScript 2022, Node.js 19.9.0
+- Major Update: May 2023
+- Minor Update: None yet.
+- Additional Notes:
+-

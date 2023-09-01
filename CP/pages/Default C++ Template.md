@@ -8,7 +8,7 @@
   ``<problem name>.cpp``: Compile this with [[Default Compilation Flow]] to execute it.
 - Template for [[CSES]] and general problems
   ```cpp
-  //
+  //<problem link>
   
   #define LOCAL
   
