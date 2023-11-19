@@ -1,4 +1,4 @@
-- Fast, multi-threaded, type-safe & memory efficient language that eliminates most bugs at compile-time. It also bridges the gap between a low-level language and a high-level language with its compiler. It uses [[rustup]] to maintain versions on platforms and [[cargo]] which is its package manager. 
+- Fast, multi-threaded, type-safe & memory efficient language that eliminates most bugs at compile-time. It also bridges the gap between a low-level language and a high-level language with its compiler. Uses [[rustup]] to maintain versions on platforms and [[cargo]] which is its package manager. 
   
   Its mascot is called *Ferris*, a red crusty crab and its users, *Rustaceans*.
 - [[Default Linter Rule]]

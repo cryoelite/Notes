@@ -26,7 +26,7 @@ alias:: Prototype Object
   We can directly use ``__proto__`` in an Object too.
   ```js
   let x ={};
-  let y = [
+  let y = {
    __proto__: x, //works
   };
   ```
@@ -82,7 +82,7 @@ alias:: Prototype Object
   console.log(y.a); //prints 4
   console.log(y.bp()); //prints 5
   ```
-  Here [[this]] is ``y`` and not ``x``, this is because ``this`` gets the Object that called the method, not the ``this`` that refers to the same Object i.e. ``x``. Here, even though ``this`` is y, when we get b through bb(), it gets b from x as it follows the inheritance chain for reading b (remember, ``this`` is just an Object so it's not doing anything special here).
+  Here [[this]] is ``y`` and not ``x``, this is because ``this`` gets the Object that called the method, not the ``this`` that refers to the same Object i.e. ``x``. Here, even though ``this`` is y, when we get b through ``bp()``, it gets b from x as it follows the inheritance chain for reading b (remember, ``this`` is just an Object so it's not doing anything special here).
 - In [[Object]], ``<obj>.hasOwnProperty(<prop name>)`` returns true if a property belongs to the Object and is not inherited.
 - ``Object.prototype`` [[Object]]
   

@@ -30,7 +30,7 @@
   Reference: [Mozilla Doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 - All operators in [[ECMAScript]] return a value.
   Even '=' with a precedency value of 2.
-  The '=' operator writes a value of the right operand into the left and then returns the value.
+  The '=' operator writes a value of the right operand into the left and then returns the value on the right.
   For ex.:
   ```js
   let x= 3;
@@ -38,7 +38,7 @@
   
   ```
   This allows us to do ``chain assignment``, which is evaluated from right to left if everything has same precedence.
-- The ',' (comma) operator has a precedency of 1. This operator only returns the value of it's right operand.
+- The ',' (comma) operator has a precedency of 1. This operator only returns the value of its right operand.
   For ex.:
   ```js
   let x= (2+3,4+5); //returns 9

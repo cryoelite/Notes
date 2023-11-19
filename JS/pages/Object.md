@@ -83,7 +83,7 @@
     "yo": 23, //  using string syntax
     0: 2, //0 is of type Number, so it is converted to "0"
     b() {
-      this.y=2; //works too, sets x to 2 for ``this`` Object, which can be x.
+      this.y=2; //works too, sets y to 2 for ``this`` Object, which can be x.
     }
   }
   x.return; //works, returns 2
