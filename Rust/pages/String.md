@@ -140,17 +140,22 @@ Not really an alias, as String and str are different things but the term is used
   hello[0..2] //works
   ```
 -
-- ```
-  1.	Raw string: Get a string as defined, we use “\ … “
+- Raw string
+  Get a string as defined, we use ``"\ <string, can be multiple lines> ";``
+  
   For ex.:
+  ```rust
   let contents = "\
   Rust:
   safe, fast, productive.
   Pick three.
   Duct tape.";
-  or use r# and #
-  let abc= r# “my string”#;
   
+  ```
+  or use ``r#" <string> "#``
+  For ex.:
+  ```rust
+  let abc= r#"my string"#;
   ```
 -
 -

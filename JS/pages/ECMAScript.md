@@ -12,7 +12,7 @@ alias:: JavaScript
   Generally both Web browsers and Node.JS use V8, node simply provides a large runtime library that allows the V8 to do a lot of stuff on the server side.
 - JS files are saved with the extension ``.js``
 - Execution
-  For browsers, any .html file that uses a <script> tag with inline js or external js file as
+  For browsers, any .html file that uses a [[<script>]] tag with inline js or external js file as
   source can execute a js file.
   For server-side, or locally, we can use node <filename.js> to execute it using Node.js.
   
