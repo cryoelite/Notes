@@ -39,6 +39,8 @@
   Boolean(""); //false
   Boolean(" "); //true
   ```
+  
+  This is slightly different from a ``Numeric Conversion``, because in numeric conversion an empty string is the same as a string with whitespaces at the ends, as they are trimmed out.
 - [[Object]] Conversion:
   To convert an Object to another type implicitly, JS looks for 3 type of methods
   First it looks for

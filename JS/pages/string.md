@@ -49,7 +49,7 @@
   ```
   * ``\uXXXX``
   * ``\u{X->XXXXXX}``, that is 1 to 6 hex chars.
-- Initially, JS only supported 2 bytes per char and this lead to ``surrogate pairs`` which are special representations of characters that took more than 2 bytes to be stored, as a result we get
+- Initially, JS only supported 2 bytes per char and this lead to ``surrogate pairs`` which are special representations of characters that took more than 2 bytes to be stored, as a result we got
   ```js
   console.log('𝒳'.length); //2
   console.log('😂'.length); //2

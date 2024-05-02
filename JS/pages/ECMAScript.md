@@ -14,7 +14,7 @@ alias:: JavaScript
 - Execution
   For browsers, any .html file that uses a [[<script>]] tag with inline js or external js file as
   source can execute a js file.
-  For server-side, or locally, we can use node <filename.js> to execute it using Node.js.
+  For server-side, or locally, we can use ``node <filename.js>`` to execute it using Node.js.
   
   Browsers have [[Developer tools]] which present various developer friendly tools to inspect a page's script and behaviors.
 - [[Compilation]]
@@ -33,7 +33,7 @@ alias:: JavaScript
   Same as everywhere else,
   ``//`` for single line
   ``/* */`` for multi
-- use strict;
+- ``use strict;``
   Older JS standards (before ES5 in 2009) use now what's called the [[Old Mode]], but after it a non-breaking change was introduced called ``strict mode`` that complies with any new changes in the ECMA standard. This string at the top of a [[<script>]] or [[Function]] enables strict mode. When applied globally, it is applied to the whole script, and for function it only enables it for the function. There's no way to disable it if enabled for a script.
   
   
@@ -117,7 +117,6 @@ alias:: JavaScript
   * [[Symbol]]
   
   * [[Object]]
-	-
 - Other complex types also exist in JS:
   Collection of values: [[Array]]
   Object like Dictionary: [[Map]]
@@ -177,3 +176,4 @@ alias:: JavaScript
 - [[Currying]]
 - JS can run on any platform that can run the V8 engine or any JS engine, these platforms are called ``Host Environment``s , like Node.JS which provides functionality for creating and running servers using JS and [[Browser]]s which provide the [[window]] Object and some others to help JS interact and manipulate the [[DOM]], [[BOM]] and core JS functionality.
 - [[ArrayBuffer]]
+-

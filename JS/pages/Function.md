@@ -2,7 +2,7 @@ filters:: {"generator function" true}
 
 - To create one, 
   ``function <name>(<param 1>, <param 2>...) {...}``
-  If we have a function ``xyz`` we can call it with xyz();
+  If we have a function ``xyz`` we can call it with ``xyz();``
 - Just like other languages, [[ECMAScript]] also has [[Scope]]s, so variables declared inside Functions are only visible inside the function's scope. They can use/modify variables from outer scope unless they are [[Shadowed]].
 - Parameters don't need to have any type and can also be omitted at call-site.
   For ex.:
@@ -189,7 +189,8 @@ filters:: {"generator function" true}
   let x= new Yo("Haa");
    x.hi(); //works
   ```
-  Ctor functions should be PascalCase by convention. 
+  Returns ``this`` [[Object]] instead of [[undefined]] implicitly.
+- Ctor functions should be PascalCase by convention. 
   new keyword here creates a new empty Object and passes it to Yo(), which then uses ``this`` to modify it. Then the value of ``this`` is returned implicitly.
   
   Arrow Functions can't be used with Ctor Fns.

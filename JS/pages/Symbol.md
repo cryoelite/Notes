@@ -32,19 +32,26 @@
   Since Symbols are always unique, sometimes we may need Symbols properties to be accessible even outside the scope of the variable holding the Symbol.
   To achieve this we can use the Global Symbol Registry which stores Symbols and these symbols are called ``Global Symbols``.
   
-  To create a symbol in the GS, if it doesn't already exist 
+  To create a symbol in the GSR, if it doesn't already exist 
   ```js
   let x = Symbol.for("yo");
   ```
-  Creates a Symbol with the "yo" key, if it doesn't already exist in the GS. If it does exist, it simply returns it, otherwise it creates it, stores it in the GS and returns it to x.
+  Creates a Symbol with the "yo" key, if it doesn't already exist in the GS. If it does exist, it simply returns it, otherwise it creates it, stores it in the GSR and returns it to x.
   
-  If we wish to check if a Symbol with the given key/description exists in the GS, we can use ``Symbol.keyFor(<symbol>)``. It returns undefined if the Symbol with the same key isn't found in the GS, otherwise it returns the Symbol's key/description
+  If we wish to check if a Symbol with the given key/description exists in the GSR, we can use ``Symbol.keyFor(<symbol>)``. It returns undefined if the Symbol with the same key isn't found in the GSR, otherwise it returns the Symbol's key/description
   For ex.:
   ```js
-  let s= Symbol("id");
-  Symbol.keyFor(s); //returns undefined
+  "use strict";
+  
+  function yo() {
+    let s = Symbol("id");
+    console.log(Symbol.keyFor(s)); //prints undefined
+    let x= Symbol.for("id");
+    console.log(Symbol.keyFor(x)); //prints id
+  }
+  
+  yo();
   ```
--
 - There are various other Symbols, that can be used to fine-tune [[Object]]s.
   They are known as [System Symbols](https://tc39.es/ecma262/#sec-well-known-symbols).
 -

@@ -7,7 +7,7 @@
   
   It is still just an [[Object]], just quite optimized by the JS engine.
 - 0-indexed.
-- Access is the same with ``<array obj>[<int>]`` as in [[C++]], but it doesn't support going from the end using negative int value. The ``.at(<int>)`` method is the same as ``[ ]`` but also supports indexing from the right end.
+- Access is the same with ``<array obj>[<int>]`` as in [[C++]], but it doesn't support going from the end using negative int value. The ``.at(<int>)`` method is the same as ``[ ]`` but also supports indexing from the right end using negative int value.
 - For size we have ``.length``.
   However, it doesn't give the actual count of the values in the array, just the max. index + 1.
   For ex.:

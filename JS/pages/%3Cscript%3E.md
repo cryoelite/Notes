@@ -15,6 +15,7 @@
   ```
   This attribute is only valid on external scripts.
 - ``Async`` script
+  id:: 649a41ae-15f0-41c8-997d-018557f4ce6f
   If a script tag uses this attribute then its execution is independent from the rest of the [[HTML]] page , it can even be loaded and executed before the page is fully loaded. 
   
   The script must be independent of the rest of the scripts and the page.

@@ -43,7 +43,7 @@
   ```js
   let x= (2+3,4+5); //returns 9
   ```
-  + has a higher precedence than ',' so it is solved first and 2+3 becomes 5, 4+5 becomes 9. Then the comma operator returns the right operand, 9.
+  \+ has a higher precedence than ',' so it is solved first and 2+3 becomes 5, 4+5 becomes 9. Then the comma operator returns the right operand, 9.
 - [[ECMAScript]] supports pre/post increment/decrement operators on variables.
 - [[ECMAScript]] also supports modify-then-assign operators like ``+=``.
 - [[Bitwise]] Operators
@@ -55,7 +55,7 @@
   There's ``'<','>','<=','>=','!=','==' and '==='``
   For ex.:
   ```js
-  let x= 2 > 3; //returns true
+  let x= 2 > 3; //returns false
   let y= "A" > "Z"; //returns false
   ```
   [[String]]s are compared using lexicographical (letter by letter unicode value) comparison.
@@ -63,7 +63,7 @@
   When values of different types are compared, they are converted to [[Number]]s. 
   For ex.:
   ```js
-  let x= "A" > true; //converts A to Number and gets NaN and compares NaN to 1. Returns false.
+  let x= "A" > true; //converts A to Number and gets NaN and compares NaN to 1 (true is converted to 1). Returns false.
   let y= false == "0"; //returns true, because false becomes 0 and "0" also becomes 0.
   ```
   All implicit conversion behaviors can be avoided using [[Strict Equality]] operators.

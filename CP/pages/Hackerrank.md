@@ -121,4 +121,77 @@
   $$y* v1 - y*v2= x2-x1  $$
   $$y \lparen v1 - v2 \rparen = x2-x1  $$
   $$y = \frac{x2-x1}{v1 - v2}  $$
+- [Between 2 sets](https://www.hackerrank.com/challenges/between-two-sets/problem)
+  ```cpp
+      int gcd(int a, int b)
+      {
+          if (b == 0)
+              return a;
+          return gcd(b, a % b);
+      }
+  
+      int lcm(int a, int b)
+      {
+          return abs(a * b) / gcd(a, b);
+      }
+  
+      void compute()
+      {
+          int a_lcm{a[0]};
+          int b_gcd{b[0]};
+  
+          for (int i{}; i < n; ++i)
+          {
+              a_lcm = lcm(a_lcm, a[i]);
+          }
+          for (int i{}; i < m; ++i)
+          {
+              b_gcd = gcd(b_gcd, b[i]);
+          }        
+          if(b_gcd%a_lcm != 0) {
+              result=0;
+              return;
+          }
+  
+          for (int i{a_lcm}; i <= b_gcd; i += a_lcm){
+              if(b_gcd%i == 0){
+                  ++result;
+              }
+          }
+  
+      }
+  ```
+  We need to find the count of distinct integers, such that for each integer x, all elements of array a must be a factor (divisor) of x. And all elements of array b must be divisible by x, or x should be a factor to all of them. For array a, we can find a number that shares its factors with all elements of a, that would be its [[LCM]], call it p, for array b we can find a number that divides all the numbers, that would be the [[GCD]], call it q. So we have an LCM, this is the smallest number divisible by all elements of a, and GCD, the greatest number that divides all of b. If ``p%q == 0`` (p divides q) then that means, p can be used to divide all the numbers of b, because q is a multiple of p, so we find the numbers between p and q that also divide q, so we check all multiples of p between p and q. 
+  For ex.:
+  For the array ``a= [2,4]``
+  For the array ``b= [16,32, 96]``
+  LCM of a = p = 4
+  GCD of b = q = 16
+  16%4=0, so there does exist atleast 2 integers that are factors of all elements of b, and have all elements of a as their factors.
+  16/4 = 4, so there's 4 elements between 4 and 16 that can also be part of our result
+  We loop at all multiples of p, i.e., 4, so 4, 8, 12 and 16 and find out 4, 8, 16 satisfy that condition. 
+  Answer: 3
+- [Breaking Best and Worst Record](https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem)
+  ```cpp
+      void compute()
+      {
+          int max_elem{scores[0]};
+          int min_elem{scores[0]};
+  
+          for (int i{1}, score{scores[1]}; i < n; ++i, score = scores[i])
+          {
+              if (score > max_elem)
+              {
+                  max_elem = score;
+                  ++max_breaks;
+              }
+              if (score < min_elem)
+              {
+                  min_elem = score;
+                  ++min_breaks;
+              }
+          }
+      }
+  ```
+  We simply track the min and max element and compare the current element with both, and increase their counts.
 -

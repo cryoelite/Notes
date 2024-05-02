@@ -5,7 +5,7 @@
   For ex.:
   ![image.png](../assets/image_1686157370645_0.png)
    
-  * A reference to the outer Lexical Environment.
+  * and a reference to the outer Lexical Environment.
   
   There's a ``Global Lexical Environment``, that is associated with the whole JS script. It's outer reference is [[null]] because it has no parent Lexical Environment to refer to.
 - Variable lifetime
@@ -49,9 +49,9 @@
   And in our code, ``y.[[Environment]]`` was holding the property x.
   (Note, the property itself is called ``[[Environment]]`` so accessing it with ``<obj>.`` is using the dot access [[Operator]] and not the ``[ ]`` access Operator )
   
-  A variable is only updated in the LE it exists in.
+  * A variable is only updated in the LE it exists in.
   
-  There is a general term for this concept where a [[Function]] remembers variables and identifiers in its outer [[Scope]] and can modify it, such functions are called ``Closures``. In JS all Functions are closures as they can remember their outer scope using the [[Environment Object]] .
+  * There is a general term for this concept where a [[Function]] remembers variables and identifiers in its outer [[Scope]] and can modify it, such functions are called ``Closures``. In JS all Functions are closures as they can remember their outer scope using the [[Environment Object]] .
 - Just like normal [[Object]]s, a LE is only subject to [[Garbage Collection]] when it becomes unreachable. This means that LEs, with them all the variables and functions, are kept in the memory if they have just a single reference to them.
   For ex.:
   ```js

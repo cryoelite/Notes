@@ -46,20 +46,51 @@
   let y= {...};
   y[x]; //ok 
   ```
+- Object keys can be variables, in which case the variable name becomes the Property Name.
+  
+  For ex.
+  ```js
+  'use strict';
+  let x = 3;
+  let obj= {
+          x:2,
+  };
+  
+  console.log(obj.x); //prints 2
+  ```
 - Computed Properties
-  We can use variables as property names too.
+  Property names inside ``[ ]`` are computed, and the computed values are then assigned the values.
+  These properties can accept variables too.
   For ex.:
   
   ```js
-  let x= "yo";
-  let y= {
-     [x]: 2,
-     [x+"X"]: 34,
-  };
-  y[x]; //works, returns 2
-  y["yo"]; //also works
-  y.yo; //works!
-  y.yoX; //same
+  'use strict';
+  
+  function yo(){
+      let x="aye";
+  
+      let obj= {
+          x:"yoo",
+          [x]:4,
+      };
+  
+      let obj2 = {
+          x: 2,
+          [x]:3,
+        	[x+"X"]: 34,
+      };
+  
+      console.log(obj.x);	 //prints yoo
+      console.log(obj["aye"]); //prints 4
+    
+      console.log(obj2.x); //prints 2
+      console.log(obj2["aye"]); //prints 3
+    	console.log(obj2.aye);	//prints 3
+  	console.log(obj2["ayeX"]); //prints 34
+    	console.log(obj2.ayeX); //prints 34
+  }
+  
+  yo();
   
   ```
 - To check if a key exists in an Object we can use the ``in`` [[Operator]]
@@ -75,6 +106,7 @@
   }
   y.name; //works and returns "yo"
   ```
+  This copies the value not references it.
 - Keys / Property Names can be either strings or [[Symbol]]s only, the other type are converted to strings. There is no restriction to a property's name as well. We don't need to use ``" "`` for strings for property names, it is automatically inserted.
   For ex.:
   ```js

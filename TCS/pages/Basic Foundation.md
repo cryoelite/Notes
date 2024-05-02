@@ -1,4 +1,0 @@
-- ![image.png](../assets/image_1707144051583_0.png)
-- [[Numerical]]
-- [[Reasoning]]
-- [[Verbal]]
