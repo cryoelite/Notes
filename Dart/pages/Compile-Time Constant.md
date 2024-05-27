@@ -1,0 +1,1 @@
+- The value is evaluated at compile time and hence must be available at compile time itself

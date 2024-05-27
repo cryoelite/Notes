@@ -1,0 +1,1 @@
+- Indicates the given expression can never finish, like for functions that never finish.

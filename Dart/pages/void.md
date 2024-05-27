@@ -1,0 +1,2 @@
+- This type represents that its value is never used, used for [[Function]]s that don't return anything or their return types don't matter.
+-

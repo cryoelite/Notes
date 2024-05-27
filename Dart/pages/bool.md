@@ -1,0 +1,2 @@
+- Only 2 objects have the type bool in Dart, `true` and `false`, both these literals are compile-time constants.
+-

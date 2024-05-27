@@ -1,0 +1,1 @@
+- Indicates we want to disable static type checking for a [[Variable]], preferrable to use [[Object]] or [[Object]]? instead.

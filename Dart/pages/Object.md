@@ -1,0 +1,2 @@
+- The superclass to all types except [[Null]]
+-

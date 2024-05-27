@@ -1,0 +1,2 @@
+- An assert is a condition that has to be true. In dart these are only checked in [[Debug Mode]], which if fails disrupts normal program execution. Done with the `assert(<bool condition>, <optional string message>);` [[Function]]. Has no effect in the [[Release Mode]].
+ 
