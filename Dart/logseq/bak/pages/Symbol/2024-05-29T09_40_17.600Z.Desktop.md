@@ -1,0 +1,2 @@
+- A Symbol is an object used to represent other operators or identifiers. 
+  It takes a string which identifies the operator or identifier then we link the Symbol object to the operator or identifier through [[Reflection]]
