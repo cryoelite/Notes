@@ -4,7 +4,7 @@ id:: 6633e18f-d9eb-4359-990e-2e27bf271b93
   * Numbers ([[int]], [[double]])
   * Strings ([[String]])
   * Booleans ([[bool]])
-  * Records \((value1, value2))
+  * Records \( [[Record]], like (value1, value2))
   * Lists ([[List]], also known as arrays)
   * Sets ([[Set]])
   * Maps ([[Map]])
@@ -37,4 +37,5 @@ id:: 6633e18f-d9eb-4359-990e-2e27bf271b93
 - Number Types
   These types have the base class [[num]], we have
   [[int]] and [[double]]
--
+- [[Collection Type]]s 
+  These types collect multiple values.

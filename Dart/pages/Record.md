@@ -1,0 +1,1 @@
+- Record Types are like [[Collection Type]], they're an anonymous, immutable aggregate data type that store .

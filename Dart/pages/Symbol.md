@@ -1,5 +1,5 @@
 - A Symbol is an object used to represent other operators or identifiers. 
-  It takes a string which remains constant inside the Symbol object, this string can be used to link the Symbol to an identifier as well, in which case it becomes the static representation of that identifier even after [[Compilation]] (because compilation minifies identifier names hence changing them).
+  It takes a string which remains constant inside the Symbol object. Symbols can be compared and 2 symbols with the same string inside them are equal, symbols stored by [[Reflection]] during [[Compilation]] can hence be compared too. 
   
   To create a symbol:
   ``#<any string no quotes needed>``
@@ -14,4 +14,5 @@
   }
   ```
   Symbol is kinda like a [[String]],i.e., it stores a string inside its object.
+  It can be used to obtain information about an identifier at runtime as well, we can do so by using the symbol with a mirroring/reflection package which would store the identifier symbols at compile time and compare them at runtime as we can't directly get identifier information at runtime without reflection because of minification on their names.
 -

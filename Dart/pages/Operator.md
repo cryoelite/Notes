@@ -110,7 +110,7 @@
   * The cascade operator is part of the language and is not exactly an operator.
 - Spread Operators
   id:: 66393218-445e-4755-b430-19bb9b920954
-  These operator evaluates an expression that yields a [[Collection]], unpacks the values of the collection in-place and inserts them into another collection. 
+  These operator evaluates an expression that yields a [[Collection Type]], unpacks the values of the collection in-place and inserts them into another collection. 
   
   There's ``...<expression>`` and it's null-aware version `...?<expr>` which only unpacks if the expression is not null, otherwise doesn't do anything.
   
@@ -122,7 +122,7 @@
   var m= [...?z, 4]; //only puts 4 in m
   ```
   
-  * `...<expr>` and `...?<expr>` are not exactly an operator expression but part of the [[Collection]] Literal Syntax instead. 
+  * `...<expr>` and `...?<expr>` are not exactly an operator expression but part of the [[Collection Type]] Literal Syntax instead. 
   Since they are not exactly operators, they don't have any precedence, and if any they would have the lowest precedence , FE: `[...a+b]` would first compute `a+b` then apply the spread to that result.
   
   * Works for [[List]]s, [[Set]]s and [[Map]]s.
