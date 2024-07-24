@@ -1,0 +1,5 @@
+- Last major Update: [[Jun 18th, 2024]]
+- Go Version: 1.22.4
+- Primary Resources: [Introducing Go Build Reliable, Scalable Programs](https://www.amazon.in/Introducing-Go-Caleb-Doxsey/dp/9352132971), https://gobyexample.com/, https://go.dev/tour/
+-
+-
